@@ -79,14 +79,18 @@ pipeline {
       }
     }
 
-  stage('Update Deployment File') {
+ stage('Update Deployment File') {
   steps {
     withCredentials([string(credentialsId: 'github', variable: 'GITHUB_TOKEN')]) {
       sh '''
+        cd ${WORKSPACE}
+
         pwd
         ls -la
 
-        # ensure we are in repo root
+        # ⭐ CRITICAL FIX — trust Jenkins workspace
+        git config --global --add safe.directory ${WORKSPACE}
+
         git config user.email "arun.tpt.03@gmail.com"
         git config user.name "Arun DevOps"
 
