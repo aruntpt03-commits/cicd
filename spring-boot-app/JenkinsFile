@@ -8,7 +8,7 @@ pipeline {
 
   environment {
     SONAR_URL   = "http://13.221.126.175:9000"
-    DOCKER_IMAGE = "aruntpt03/ultimate-cicd:${BUILD_NUMBER}"
+    DOCKER_IMAGE = "dockerarasan/ultimate-cicd:${BUILD_NUMBER}"
     GIT_REPO    = "https://github.com/aruntpt03-commits/cicd.git"
   }
 
